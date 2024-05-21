@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from pages.event_page import EventPage
+# from pages.authorization_page import AuthorizationPage
 
 # Test 3 - Placing the order
 # Clicking on placing the order button

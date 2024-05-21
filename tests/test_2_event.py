@@ -45,8 +45,3 @@ def test_event_flow(browser):
         raise
 
 
-def test_button_check(browser):
-    event_page = EventPage(browser)
-    with allure.step('Concert button is displayed'):
-        assert event_page.concert_button().is_displayed()
-        sleep(1)

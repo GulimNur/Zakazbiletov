@@ -1,0 +1,50 @@
+name: Automation test
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        required: true
+        default:
+        type: choice
+        options:
+          - First Test - Authorization
+          - Second Test - Event
+          - Third Test - Purchase
+          - Fourth Test - Refund
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.0"
+
+      - name: Install Chrome
+        run: sudo apt-get install google-chrome-stable
+
+      - name: install dependencies
+        run: pip install -r requirements.txt
+
+      - name: First Test - Authorization
+        if: "github.event.inputs.deployment_target == 'first_test'"
+        run: pytest tests/test_1_authorization.py
+
+      - name: Second Test - Event
+        if: "github.event.inputs.deployment_target == 'second_test'"
+        run: pytest tests/test_2_event.py
+
+      - name: Third Test - Purchase
+        if: "github.event.inputs.deployment_target == 'third_test'"
+        run: pytest tests/test_3_purchase.py
+
+      - name: Fourth Test - Refund
+        if: "github.event.inputs.deployment_target == 'fourth_test'"
+        run: pytest tests/test_4_refund.py

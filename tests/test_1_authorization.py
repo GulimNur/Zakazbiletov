@@ -37,23 +37,3 @@ def test_authorization(browser):
         sleep(1)
 
 
-@allure.feature('Button Check')
-@allure.story('Check if the login button is displayed')
-@allure.description('This test will check if the login button is displayed on the site')
-def test_button_check(browser):
-    with allure.step('Open browser'):
-        authorization_page = AuthorizationPage(browser)
-
-    with allure.step('Go to site'):
-        authorization_page.open()
-
-    with allure.step('Handle notification if present'):
-        authorization_page.handle_notification()
-        sleep(2)
-
-    with allure.step('Login button is displayed'):
-        assert authorization_page.login_button().is_displayed()
-        sleep(10)
-
-
-

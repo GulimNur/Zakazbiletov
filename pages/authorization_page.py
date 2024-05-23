@@ -9,9 +9,6 @@ password_field = (By.ID, 'loginform-password')
 enter_button = (By.XPATH, '//button[@class="btn btn-danger btn-block"]')
 profile_icon = (By.XPATH,'//div[@class="auth"]/descendant::button[@class="btn dropdown-toggle"]')
 
- # enter_button locator '//button[@class="btn btn-danger btn-block"]'
- # enter_button locator '//*[@id="login-form"]/child::button[@class="btn btn-danger btn-block"
-
 
 class AuthorizationPage(BasePage):
     def __init__(self, browser):
